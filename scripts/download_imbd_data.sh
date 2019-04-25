@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/env bash
 #
 # Script to update data
 #
@@ -20,4 +20,5 @@ declare -a DOWNLOAD_FILES=("title.akas.tsv.gz" "title.basics.tsv.gz" "title.crew
 for FILE in "${DOWNLOAD_FILES[@]}"; do
   # wget each file
   $(wget $SRC_URL$FILE -P $DATA_DIR)
+  $(gzip -d $DATA_DIR/$SRC_URL$FILE)
 done
