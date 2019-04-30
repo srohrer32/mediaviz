@@ -13,6 +13,6 @@ install:
 	$(shell pip3 install -r requirements.txt)
 
 clean:
-	$(shell rm -r data/)
+
 
 .PHONY: clean
