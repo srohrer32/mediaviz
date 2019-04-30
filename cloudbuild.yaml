@@ -1,6 +1,6 @@
 steps:
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', '--rm=false', 'gcr.io/$PROJECT_ID/mediaviz-img', '.']
+  args: ['build', '-t', 'gcr.io/$PROJECT_ID/mediaviz-img', '.']
   timeout: 500s
 - name: 'gcr.io/cloud-builders/docker'
   args: ['push', 'gcr.io/$PROJECT_ID/mediaviz-img']
