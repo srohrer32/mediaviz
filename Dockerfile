@@ -2,7 +2,7 @@
 # install the package on the local machine along with python and dependencies
 #
 
-FROM alpine
+FROM ubuntu
 MAINTAINER Samuel Rohrer version: 0.1
 
 # install python
