@@ -6,8 +6,7 @@ FROM ubuntu
 MAINTAINER Samuel Rohrer
 
 # install python
-RUN apt-get update
-RUN apt-get install python3-pip
+RUN apt-get update && apt-get --yes install python3-pip
 
 # install the necessary data and packages
 CMD ["make", "install"]
