@@ -15,5 +15,3 @@ setup(name='media-predictor',
       py_modules = ['impl']
       )
 
-# export the module
-export impl as media-predict
