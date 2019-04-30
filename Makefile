@@ -12,6 +12,13 @@ install:
 	$(shell scripts/download_imdb_data.sh)
 	$(shell pip3 install -r requirements.txt)
 
+# make rule to test package
+test:
+	echo "test"
+	uname -a
+	df -h
+	lscpu
+
 clean:
 
 

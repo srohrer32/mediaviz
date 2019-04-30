@@ -3,7 +3,7 @@
 #
 
 FROM ubuntu
-MAINTAINER Samuel Rohrer
+MAINTAINER Samuel Rohrer version: 0.1
 
 # install python
 RUN apt-get update && apt-get --yes install python3-pip
@@ -14,3 +14,4 @@ CMD ["make", "install"]
 CMD ["make", "package"]
 
 # now run the tests
+CMD ["make", "test"]
