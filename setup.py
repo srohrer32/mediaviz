@@ -12,5 +12,8 @@ setup(name='media-predictor',
       author='Samuel Rohrer',
       author_email='srohrer32@gmail.com',
       url='srohrer32.github.io',
-      py_modules = ['python']
+      py_modules = ['impl']
       )
+
+# export the module
+export impl as media-predict
