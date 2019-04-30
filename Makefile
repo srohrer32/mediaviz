@@ -22,4 +22,4 @@ test:
 clean:
 
 
-.PHONY: clean
+.PHONY: clean, test
