@@ -12,8 +12,8 @@ RUN apt-get update && apt-get --yes install python3-pip
 COPY . /tmp/
 WORKDIR /tmp/
 
-# set local dir to python path
-ENV PYTHONPATH=./$PYTHONPATH
+# set env vars
+RUN ["/bin/bash",  "-c", "source scripts/setup/env.sh"]
 
 # install packages
 RUN pip3 install -r requirements.txt

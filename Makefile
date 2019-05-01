@@ -12,7 +12,7 @@ test:
 
 # make rule to install package
 install:
-	$(shell export PYTHONPATH=./:$PYTHONPATH)
+	$(shell ./scripts/setup/env.sh)
 	$(shell ./scripts/data/download_imdb_data.sh)
 	$(shell pip3 install -r requirements.txt)
 
