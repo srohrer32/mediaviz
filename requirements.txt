@@ -1,4 +1,2 @@
-media-predictor
 scipy>=1.2
-virtualenv>=16.5
-tensorflow>=1.10
+pandas>=0.22

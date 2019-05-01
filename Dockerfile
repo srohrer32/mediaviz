@@ -8,13 +8,16 @@ MAINTAINER Samuel Rohrer version: 0.1
 # install python
 RUN apt-get update && apt-get --yes install python3-pip
 
-COPY quickstart.sh /
-CMD ["/quickstart.sh"]
+# copy repo and change to it
+COPY . /tmp/
+WORKDIR /tmp/
 
-# install the necessary data and packages
-CMD ["make", "install"]
-# build the installation
-CMD ["make", "package"]
+# set local dir to python path
+ENV PYTHONPATH=./$PYTHONPATH
+
+# install packages
+RUN pip3 install -r requirements.txt
+RUN pip3 install .
 
 # now run the tests
-CMD ["make", "test"]
+RUN python3 tests/simple.py

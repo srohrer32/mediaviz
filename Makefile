@@ -9,17 +9,10 @@ package:
 # make rule to install package
 install:
 	$(shell export PYTHONPATH=./:$PYTHONPATH)
-	$(shell scripts/download_imdb_data.sh)
+	$(shell ./scripts/data/download_imdb_data.sh)
 	$(shell pip3 install -r requirements.txt)
-
-# make rule to test package
-test:
-	echo "test"
-	uname -a
-	df -h
-	lscpu
 
 clean:
 
 
-.PHONY: clean, test
+.PHONY: clean
