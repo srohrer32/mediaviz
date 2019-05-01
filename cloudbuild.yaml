@@ -2,8 +2,4 @@ steps:
 - name: 'gcr.io/cloud-builders/docker'
   args: ['build', '-t', 'gcr.io/$PROJECT_ID/mediaviz-img', '.']
   timeout: 500s
-  #- name: 'gcr.io/cloud-builders/docker'
-  #args: ['push', 'gcr.io/$PROJECT_ID/mediaviz-img']
-timeout: 660s
 tags: ['mediaviz', 'datascience']
-images: ['gcr.io/$PROJECT_ID/mediaviz-img']
