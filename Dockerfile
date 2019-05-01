@@ -13,7 +13,10 @@ COPY . /tmp/
 WORKDIR /tmp/
 
 # set env vars
-RUN ["/bin/bash",  "-c", "source scripts/setup/env.sh"]
+ENV PYTHONPATH=./$PYTHONPATH
+ENV FLASK_APP=./impl/webgui/app.py
+ENV LC_ALL=C.UTF-8
+EXPOSE 5000
 
 # install packages
 RUN pip3 install -r requirements.txt
