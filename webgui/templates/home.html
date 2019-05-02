@@ -32,13 +32,27 @@
       </ul>
       </div>
     </nav>
-
-
   </head>
-  <body>
-    <h1>Hello, world!</h1>
 
-  <script src="{{ url_for('static', filename='bootstrap/css/bootstrap.min.css')}}"></script>
+  <body>
+    <!-- Jumbotron -->
+    <div class="jumbotron">
+      <div class="container" style="text-align: center; height:100vh;">
+
+        <!-- ************ Interactive part ************** -->
+        <h1>Enter your favorite movies</h1>
+        <img src="/plot.png" alt="my plot"></img>
+
+      </div>
+    </div>
+
+    <!-- ***************** Footer ********************** -->
+    <hr class="featurette-divider">
+    <footer>
+      <p class="text-center"> Copyright &#169; 2019 Samuel Rohrer</p>
+    </footer>
+
+    <script src="{{ url_for('static', filename='bootstrap/css/bootstrap.min.css')}}"></script>
 
   </body>
 </html>
