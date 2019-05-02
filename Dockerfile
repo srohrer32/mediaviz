@@ -14,7 +14,7 @@ WORKDIR /tmp/
 
 # set env vars
 ENV PYTHONPATH=./$PYTHONPATH
-ENV FLASK_APP=./impl/webgui/app.py
+ENV FLASK_APP=./webgui/app.py
 ENV LC_ALL=C.UTF-8
 EXPOSE 5000
 
