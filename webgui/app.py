@@ -32,12 +32,19 @@ def create_figure():
     axis.plot(xs, ys)
     return fig
 
+# method to call constructor
+def findRecommendations(input_media):
+    if input_media == "":
+        raise RuntimeError("no data to infer new favorite movies")
+
+    return ["Pokemon", "Dragonball Z", "Toy Story", "Cars"]
+
 # render the webpage after list request
 @app.route('/handle_input', methods=['POST'])
 def handle_input():
-    projectdat = request.form['inputMedia']
-    print("project dat var read is = ", projectdat)
-    return render_template('home.html')
+    input_media = request.form['inputMedia']
+    recs = findRecommendations(input_media)
+    return render_template('home.html', recs=recs)
 
 # run the application
 if __name__ == "__main__":

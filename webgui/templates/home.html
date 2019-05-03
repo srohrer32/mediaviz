@@ -60,6 +60,13 @@
         <div class="container-fluid">
           <h2>Results</h2>
           <img src="/plot.png" alt="my plot"></img>
+          <br><br>
+          <h4>Recommendations:</h4>
+          <p>
+          {% for title in recs %}
+          {{ title }}, 
+          {% endfor %}
+          </p>
         </div>
 
         <!-- ********* Explanation figures ********* -->
