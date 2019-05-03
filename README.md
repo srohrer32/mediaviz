@@ -1,4 +1,7 @@
 # MediaViz
+
+[![Build Status](https://travis-ci.com/srohrer32/mediaviz.svg?branch=master)](https://travis-ci.com/srohrer32/mediaviz)
+
 This project is setup to build on every push, the dependencies follow:
 
  - `impl/` folder containing the Python package implementation.
