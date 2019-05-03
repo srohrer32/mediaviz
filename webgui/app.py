@@ -32,6 +32,7 @@ def create_figure():
     axis.plot(xs, ys)
     return fig
 
+# render the webpage after list request
 @app.route('/handle_input', methods=['POST'])
 def handle_input():
     projectdat = request.form['inputMedia']
