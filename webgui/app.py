@@ -4,7 +4,8 @@
 
 import io
 import random
-from flask import Flask, render_template, Response
+from flask import Flask, render_template, request, Response
+
 from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
 from matplotlib.figure import Figure
 
@@ -31,6 +32,11 @@ def create_figure():
     axis.plot(xs, ys)
     return fig
 
+@app.route('/handle_input', methods=['POST'])
+def handle_input():
+    projectdat = request.form['inputMedia']
+    print("project dat var read is = ", projectdat)
+    return render_template('home.html')
 
 # run the application
 if __name__ == "__main__":

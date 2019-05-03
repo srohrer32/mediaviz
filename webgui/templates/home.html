@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
 
@@ -35,16 +35,38 @@
   </head>
 
   <body>
+
     <!-- Jumbotron -->
     <div class="jumbotron">
       <div class="container" style="text-align: center; height:100vh;">
+        <h1>Welcome to MediaViz, by Sam Rohrer</h1>
+        <br><br>
 
         <!-- ************ Interactive part ************** -->
-        <h1>Enter your favorite movies</h1>
-        <img src="/plot.png" alt="my plot"></img>
+        <div class="container-fluid">
+          <div class="row-fluid">
+            <div class="span4 offset4 text-left">
+              <form action="{{ url_for('handle_input') }}" method="post">
+                <div class="form-group">
+                  <input type="text" name="inputMedia" class="form-control" id="inputMedia1" aria-describedby="inputMediaHelp" placeholder="Enter favorite movies">
+                  <small id="inputMediaHelp" class="form-text text-muted">Enter as a comma separated list, press &ltEnter> to submit. Example: Iron Man, Batman, Spiderman &ltEnter>.</small>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <!-- ********* Explanation figures ********* -->
+        <div class="container-fluid">
+          <h2>Results</h2>
+          <img src="/plot.png" alt="my plot"></img>
+        </div>
+
+        <!-- ********* Explanation figures ********* -->
 
       </div>
     </div>
+
 
     <!-- ***************** Footer ********************** -->
     <hr class="featurette-divider">
