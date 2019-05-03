@@ -1,0 +1,10 @@
+language: python
+python:
+  - 3.6
+
+services:
+  - docker
+
+script:
+  - docker build -t mediaviz .
+  - docker ps -a
