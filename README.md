@@ -7,6 +7,7 @@ This project is setup to build on every push, the dependencies follow:
  - `impl/` folder containing the Python package implementation.
  - `tests/` folder containing unit tests for all modules. These can all be run using the command `make test`, and are run automatically on each push.
  - `scripts/` folder containing helpful scripts, some of which are called by other files.
+ - `webgui/` folder containing the Flask web application and templates.
 
 ## Installation
 
