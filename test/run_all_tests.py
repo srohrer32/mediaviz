@@ -7,8 +7,7 @@ import glob
 import os
 import unittest
 
-# main method
-if __name__ == "__main__":
+def _main():
     # initialize the test suite
     loader = unittest.TestLoader()
     suite = unittest.TestSuite()
@@ -24,3 +23,8 @@ if __name__ == "__main__":
     # initialize a runner and run the tests
     runner = unittest.TextTestRunner(verbosity=3)
     result = runner.run(suite)
+
+
+# main method
+if __name__ == "__main__":
+    _main()

@@ -23,4 +23,4 @@ RUN pip3 install -r requirements.txt
 RUN pip3 install .
 
 # run tests
-RUN python3 tests/run_all_tests.py
+RUN python3 test/run_all_tests.py
