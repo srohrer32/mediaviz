@@ -8,7 +8,7 @@ package:
 
 # test
 test:
-	python3 tests/run_all_tests.py
+	python3 test/run_all_tests.py
 
 # make rule to install package
 install:
