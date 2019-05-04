@@ -21,6 +21,3 @@ EXPOSE 5000
 # install packages
 RUN pip3 install -r requirements.txt
 RUN pip3 install .
-
-# now run the tests
-RUN python3 tests/run_all_tests.py
