@@ -8,3 +8,6 @@ export PYTHONPATH="./$PYTHONPATH"
 
 # add flask app location
 export FLASK_APP="./impl/webgui/app.py"
+
+# turn on correct character set
+export LC_ALL="C.UTF-8"

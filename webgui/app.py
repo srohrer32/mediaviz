@@ -37,12 +37,13 @@ def findRecommendations(input_media):
     if input_media == "":
         raise RuntimeError("no data to infer new favorite movies")
 
-    return ["Pokemon", "Dragonball Z", "Toy Story", "Cars"]
+    return input_media + ["Pokemon", "Dragonball Z", "Toy Story", "Cars"]
 
 # render the webpage after list request
 @app.route('/handle_input', methods=['POST'])
 def handle_input():
     input_media = request.form['inputMedia']
+    input_media = input_media.split(',')
     recs = findRecommendations(input_media)
     return render_template('home.html', recs=recs)
 
