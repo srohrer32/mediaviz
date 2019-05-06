@@ -18,7 +18,9 @@ declare -a DOWNLOAD_FILES=("title.akas.tsv.gz" "title.basics.tsv.gz" "title.crew
 
 # iter over the array downloading
 for FILE in "${DOWNLOAD_FILES[@]}"; do
-  # wget each file
-  $(wget $SRC_URL$FILE -P $DATA_DIR)
-  $(gzip -d $DATA_DIR/$FILE)
+  if [ ! -f $DATA_DIR/${FILE%.*} ]; then
+    # wget each file and decompress
+    $(wget $SRC_URL$FILE -P $DATA_DIR)
+    $(gzip -d $DATA_DIR/$FILE)
+  fi
 done
