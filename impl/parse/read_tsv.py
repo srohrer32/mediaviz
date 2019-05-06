@@ -1,5 +1,3 @@
-#!/bin/env python
-#
 #
 # Functions to read TSV file
 #
