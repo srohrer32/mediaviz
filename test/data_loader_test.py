@@ -19,10 +19,10 @@ class DataLoaderTest(unittest.TestCase):
 
     def test_local(self):
         try:
-            dl = impl.DataLoader(type_media="movies")
-            members = dl.get_members()
-            self.assertTrue(dl.check_member(members[0]))
-            df = dl.access_member(members[0])
+            dl = impl.DataLoader(media_type="movies")
+            members = dl.getMembers()
+            self.assertTrue(dl.checkMember(members[0]))
+            df = dl.accessMember(members[0])
         except:
             # if it fails in cloud just skip
             self.assertTrue(True)
@@ -34,9 +34,9 @@ class DataLoaderTest(unittest.TestCase):
     def test_cloud(self):
         data_in = {'eggs': 5, 'milk': 1, 'water': 3}
 
-        dl = impl.DataLoader(type_media="movies", load_data_in=data_in)
-        members = dl.get_members()
-        df = dl.access_member(members[0])
+        dl = impl.DataLoader(media_type="movies", load_data_in=data_in)
+        members = dl.getMembers()
+        df = dl.accessMember(members[0])
 
-        self.assertTrue(dl.check_member(members[0]))
+        self.assertTrue(dl.checkMember(members[0]))
         self.assertTrue(df == 5)

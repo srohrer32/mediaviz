@@ -1,1 +1,1 @@
-from impl.plot.fig_to_flask import fig_to_flask
+from impl.plot.fig_to_flask import figToFlask

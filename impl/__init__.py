@@ -6,9 +6,9 @@ from impl.data_loader import DataLoader
 #######################################
 ##        PARSE FUNCTIONS            ##
 #######################################
-from impl.parse import find_members
+from impl.parse import findMembers
 
 #######################################
 ##        PLOT FUNCTIONS            ##
 #######################################
-from impl.plot import fig_to_flask
+from impl.plot import figToFlask

@@ -11,7 +11,7 @@ class DataLoader():
     files = ["./data/title.ratings.tsv"]
     data = {}
 
-    def _load_data(self, load_data_in):
+    def __loadData(self, load_data_in):
         if load_data_in:
             self.data = load_data_in
         else:
@@ -23,16 +23,16 @@ class DataLoader():
                     raise RuntimeError("Please download: ", fl)
 
 
-    def __init__(self, type_media="", load_data_in={}):
-        if type_media == "movies":
-            self.type_media = "movies"
+    def __init__(self, media_type="", load_data_in={}):
+        if media_type == "movies":
+            self.media_type = "movies"
         else:
-            raise RuntimeError("Type of media provided does not exist, media: ", type_media)
+            raise RuntimeError("Type of media provided does not exist, media: ", media_type)
 
-        self._load_data(load_data_in)
+        self.__loadData(load_data_in)
 
 
-    def access_member(self, member=""):
+    def accessMember(self, member=""):
         if member == "":
             raise RuntimeError("Member dataset not provided")
 
@@ -42,7 +42,7 @@ class DataLoader():
             raise RuntimeError("Member ", member, " not found in data")
 
 
-    def check_member(self, member=""):
+    def checkMember(self, member=""):
         if member == "":
             raise RuntimeError("Member dataset not provided")
 
@@ -52,5 +52,5 @@ class DataLoader():
             return False
 
 
-    def get_members(self):
+    def getMembers(self):
         return list(self.data.keys())

@@ -10,7 +10,7 @@ from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
 from matplotlib.figure import Figure
 
 # random figure creation
-def _create_figure():
+def __createFigure():
     fig = Figure()
     axis = fig.add_subplot(1, 1, 1)
     xs = range(100)
@@ -19,7 +19,7 @@ def _create_figure():
     return fig
 
 # helper to create flask png from figure
-def fig_to_flask(fig=_create_figure()):
+def figToFlask(fig=__createFigure()):
     output = io.BytesIO()
     FigureCanvas(fig).print_png(output)
     return Response(output.getvalue(), mimetype='image/png')
