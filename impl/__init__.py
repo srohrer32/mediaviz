@@ -4,6 +4,11 @@
 from impl.data_loader import DataLoader
 
 #######################################
+##   INFERNCE ENGINE FUNCTIONS       ##
+#######################################
+
+
+#######################################
 ##        PARSE FUNCTIONS            ##
 #######################################
 from impl.parse import findMembers
