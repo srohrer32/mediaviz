@@ -9,7 +9,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.min.css') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <link href="{{ url_for('static', filename='bootstrap.min.css') }}" rel="stylesheet" >
 
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -60,11 +61,16 @@
         <div class="container-fluid">
           <h2>Results</h2>
           <img src="/plot.png" alt="my plot"></img>
+
+          {% for img in figs %}
+            <img src={{ img }}></img>
+          {% endfor %}
+
           <br><br>
           <h4>Recommendations:</h4>
           <p>
           {% for title in recs %}
-          {{ title }}, 
+            {{ title }}, 
           {% endfor %}
           </p>
         </div>

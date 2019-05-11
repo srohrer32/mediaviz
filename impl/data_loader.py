@@ -8,7 +8,8 @@ import os
 
 class DataLoader():
     # declare the titles to read
-    files = ["./data/title.ratings.tsv"]
+    files = ["./data/title.ratings.tsv", "./data/title.basics.tsv"]
+
     data = {}
 
     def __loadData(self, load_data_in):
@@ -29,6 +30,7 @@ class DataLoader():
         else:
             raise RuntimeError("Type of media provided does not exist, media: ", media_type)
 
+        # load the data in
         self.__loadData(load_data_in)
 
 

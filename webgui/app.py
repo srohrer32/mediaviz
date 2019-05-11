@@ -3,19 +3,17 @@
 #
 
 import impl
-
-from flask import Flask, render_template, request
+import flask
 
 # globals
-app = Flask(__name__)
+app = flask.Flask(__name__)
 
-dl = impl.DataLoader(media_type="movies")
-
+md = impl.MovieDriver()
 
 # Simple hello world test
 @app.route('/')
 def hello():
-    return render_template('home.html')
+    return flask.render_template('home.html')
 
 # try to display a figure
 @app.route('/plot.png')
@@ -25,20 +23,15 @@ def print_fig():
 
 # method to call constructor
 def findRecommendations(input_media):
-    #return input_media + ["Pokemon", "Dragonball Z", "Toy Story", "Cars"]
-    global dl
-    print("input media = ", input_media)
-    print(dl.getMembers())
-    return impl.findMembers(input_media, dl.getMembers())
-
+    return input_media + ["Pokemon", "Dragonball Z", "Toy Story", "Cars"]
 
 # render the webpage after list request
 @app.route('/handle_input', methods=['POST'])
 def handle_input():
-    input_media = request.form['inputMedia']
+    input_media = flask.request.form['inputMedia']
     input_media = input_media.split(',')
     recs = findRecommendations(input_media)
-    return render_template('home.html', recs=recs)
+    return flask.render_template('home.html', recs=recs)
 
 # run the application
 if __name__ == "__main__":
