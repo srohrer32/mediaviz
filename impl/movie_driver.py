@@ -49,14 +49,17 @@ class MovieDriver():
 
 
     def __init__(self, model="skl"):
-        # make the data loader
-        self.dl = DataLoader(media_type="movies")
-        self.data = pd.DataFrame()
+        if model == "skl":
+            # make the data loader
+            self.dl = DataLoader(media_type="movies")
+            self.data = pd.DataFrame()
 
-        # now that the data is loaded clean it
-        self.__clean_data()
+            # now that the data is loaded clean it
+            self.__clean_data()
 
-        # build the inference engine
+            # build the inference engine
+        else:
+            raise NotImplementedError("have not implemented model type ", model)
 
 
     def getData(self):
