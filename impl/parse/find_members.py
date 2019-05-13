@@ -10,13 +10,15 @@ def findMembers(input_names, names):
     members = []
     nonmembers = []
 
+    names = set(names.str.lower())
+
     # now iter over placing in each list
     for el in input_names:
-        el_lower = el.lower()
+        el_lower = el.lower().lstrip()
         if el_lower in names:
-            members.append(el_lower)
+            members.append(el)
         else:
-            nonmembers.append(el_lower)
+            nonmembers.append(el)
 
     # return the members
     return members

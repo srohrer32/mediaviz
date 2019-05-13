@@ -25,7 +25,8 @@ def print_fig():
 
 # method to call constructor
 def findRecommendations(input_media):
-    return input_media + ["Pokemon", "Dragonball Z", "Toy Story", "Cars"]
+    movies = impl.findMembers(input_media, md.getLabels())
+    return movies
 
 # render the webpage after list request
 @app.route('/handle_input', methods=['POST'])

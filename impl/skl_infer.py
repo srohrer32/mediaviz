@@ -20,5 +20,13 @@ class ScikitInfer(InferenceEngine):
         self.data = self.vectorizer.fit_transform(data_dicts)
 
 
+    def buildEngine(self):
+        pass
+
+
+    def inferFromData(self, data):
+        pass
+
+
     def __del__(self):
         pass

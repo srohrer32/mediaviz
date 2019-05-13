@@ -14,7 +14,7 @@ class InferenceEngine():
         raise NotImplementedError("build engine function not implemented")
 
     # infer a prediction from a data point
-    def inferFromData(self, dl):
+    def inferFromData(self, data):
         raise NotImplementedError("infer from data function not implemented")
 
     # cleanup the model, save it to the models dir
