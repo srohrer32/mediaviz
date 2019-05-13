@@ -9,6 +9,8 @@ import flask
 app = flask.Flask(__name__)
 
 md = impl.MovieDriver()
+skl = impl.ScikitInfer(md.getData(), md.getLabels())
+
 
 # Simple hello world test
 @app.route('/')

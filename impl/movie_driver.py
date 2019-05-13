@@ -39,6 +39,8 @@ class MovieDriver():
         # now correct data types
         self.data['averageRating'] = self.data['averageRating'].astype(float)
         self.data['numVotes'] = self.data['numVotes'].astype(int)
+        self.data['startYear'] = self.data['startYear'].astype(int)
+        self.data['genres'] = self.data['genres'].str.split(',').str.get(0)
 
         # reindex now
         self.data.reset_index(inplace=True)
@@ -53,11 +55,11 @@ class MovieDriver():
             # make the data loader
             self.dl = DataLoader(media_type="movies")
             self.data = pd.DataFrame()
-
             # now that the data is loaded clean it
             self.__clean_data()
-
-            # build the inference engine
+            # save labels
+            self.labels = self.data['primaryTitle']
+            del self.data['primaryTitle']
         else:
             raise NotImplementedError("have not implemented model type ", model)
 
@@ -65,4 +67,6 @@ class MovieDriver():
     def getData(self):
         return self.data
 
+    def getLabels(self):
+        return self.labels
 

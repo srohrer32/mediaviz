@@ -14,8 +14,7 @@ class MovieDriverTest(unittest.TestCase):
             return
 
         # else check the title
-        correct = ["averageRating","numVotes", "primaryTitle", "startYear",
-                    "genres"]
+        correct = ["averageRating","numVotes", "startYear", "genres"]
 
         self.assertTrue(correct == list(md.getData()))
 
