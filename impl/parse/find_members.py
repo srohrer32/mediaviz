@@ -2,6 +2,8 @@
 # function to return members of dict and print non members (all lowercase)
 #
 
+import pandas as pd
+
 def findMembers(input_names, names):
     if input_names == "" or input_names == []:
         raise RuntimeError("no inputs to determine membership")
@@ -10,7 +12,8 @@ def findMembers(input_names, names):
     members = []
     nonmembers = []
 
-    names = set(names.str.lower())
+    if isinstance(names, pd.DataFrame):
+        names = set(names.str.lower())
 
     # now iter over placing in each list
     for el in input_names:

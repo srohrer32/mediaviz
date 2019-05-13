@@ -3,6 +3,8 @@
 #
 
 import impl
+
+import pandas as pd
 import unittest
 
 class MembersTest(unittest.TestCase):
