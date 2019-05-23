@@ -14,3 +14,9 @@ class ScikitInferTest(unittest.TestCase):
                         index=[0])
         skl = impl.ScikitInfer(test_df, np.random.rand(25,1))
         self.assertTrue(True)
+
+    def test_data(self):
+        md = impl.MovieDriver()
+        skl = impl.ScikitInfer(md.getData(), md.getLabels())
+        skl.buildEngine()
+        self.assertTrue(True)

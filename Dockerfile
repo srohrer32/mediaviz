@@ -19,6 +19,7 @@ ENV LC_ALL=C.UTF-8
 EXPOSE 5000
 
 # install packages
+RUN /scripts/download_imdb_data.sh
 RUN pip3 install -r requirements.txt
 RUN pip3 install .
 

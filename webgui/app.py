@@ -11,6 +11,8 @@ app = flask.Flask(__name__)
 md = impl.MovieDriver()
 skl = impl.ScikitInfer(md.getData(), md.getLabels())
 
+skl.buildEngine()
+
 
 # Simple hello world test
 @app.route('/')

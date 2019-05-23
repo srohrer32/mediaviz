@@ -4,6 +4,7 @@
 
 from impl.inference_engine import InferenceEngine
 
+from sklearn.cluster import AgglomerativeClustering
 from sklearn.feature_extraction import DictVectorizer
 
 
@@ -21,7 +22,10 @@ class ScikitInfer(InferenceEngine):
 
 
     def buildEngine(self):
-        pass
+        self.cluster = AgglomerativeClustering().fit_predict(self.data.toarray())
+
+        print(self.cluster)
+        print(self.cluster.get_params())
 
 
     def inferFromData(self, data):
