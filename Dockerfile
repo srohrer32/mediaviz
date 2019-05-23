@@ -18,6 +18,9 @@ ENV FLASK_APP=./webgui/app.py
 ENV LC_ALL=C.UTF-8
 EXPOSE 5000
 
+# allow more travis memory
+ENV TRAVIS_WORKER_DOCKER_MEMORY=32G
+
 # install packages
 RUN ./scripts/download_imdb_data.sh
 RUN pip3 install -r requirements.txt
