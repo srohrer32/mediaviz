@@ -20,7 +20,7 @@ declare -a DOWNLOAD_FILES=("title.akas.tsv.gz" "title.basics.tsv.gz" "title.crew
 for FILE in "${DOWNLOAD_FILES[@]}"; do
   if [ ! -f $DATA_DIR/${FILE%.*} ]; then
     # wget each file and decompress
-    $(wget $SRC_URL$FILE -P $DATA_DIR)
+    $(wget -q $SRC_URL$FILE -P $DATA_DIR)
     $(gzip -d $DATA_DIR/$FILE)
   fi
 done
