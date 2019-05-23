@@ -14,7 +14,7 @@ skl = impl.ScikitInfer(md.getData(), md.getLabels())
 
 # Simple hello world test
 @app.route('/')
-def hello():
+def init_page():
     return flask.render_template('home.html')
 
 # try to display a figure
@@ -23,17 +23,12 @@ def print_fig():
     return impl.figToFlask()
 
 
-# method to call constructor
-def findRecommendations(input_media):
-    movies = impl.findMembers(input_media, md.getLabels())
-    return movies
-
 # render the webpage after list request
 @app.route('/handle_input', methods=['POST'])
 def handle_input():
     input_media = flask.request.form['inputMedia']
     input_media = input_media.split(',')
-    recs = findRecommendations(input_media)
+    recs = impl.findMembers(input_media, md.getLabels())
     return flask.render_template('home.html', recs=recs)
 
 # run the application
