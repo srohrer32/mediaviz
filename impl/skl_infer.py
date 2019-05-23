@@ -19,10 +19,13 @@ class ScikitInfer(InferenceEngine):
         data_dicts = [dict(y.iteritems()) for x, y in self.data.iterrows()]
         self.vectorizer = DictVectorizer()
         self.data = self.vectorizer.fit_transform(data_dicts)
+        print(self.vectorizer.get_feature_names())
 
 
     def buildEngine(self):
-        self.cluster = AgglomerativeClustering().fit_predict(self.data.toarray())
+        self.cluster = AgglomerativeClustering()
+        print(self.cluster)
+        self.cluster = self.cluster.fit_predict(self.data.toarray())
 
         print(self.cluster)
         print(self.cluster.get_params())
