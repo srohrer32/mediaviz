@@ -10,16 +10,21 @@ from sklearn.feature_extraction import DictVectorizer
 
 class ScikitInfer(InferenceEngine):
 
+
+    # create SKL object out of it
+    def __vectorize(self):
+        # turn into dictionarys to vectorize
+        data_dicts = [dict(y.iteritems()) for x, y in self.data.iterrows()]
+
+        self.vectorizer = DictVectorizer()
+        self.data = self.vectorizer.fit_transform(data_dicts)
+        print(self.vectorizer.get_feature_names())
+
+
     def __init__(self, data, labels):
         # save the data
         self.data = data
         self.labels = labels
-
-        # turn into dictionarys to vectorize
-        data_dicts = [dict(y.iteritems()) for x, y in self.data.iterrows()]
-        self.vectorizer = DictVectorizer()
-        self.data = self.vectorizer.fit_transform(data_dicts)
-        print(self.vectorizer.get_feature_names())
 
 
     def buildEngine(self):
@@ -32,8 +37,7 @@ class ScikitInfer(InferenceEngine):
 
 
     def inferFromData(self, data):
-        pass
-
+        return data
 
     def __del__(self):
         pass

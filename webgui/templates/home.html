@@ -50,7 +50,7 @@
               <form action="{{ url_for('handle_input') }}" method="post">
                 <div class="form-group">
                   <input type="text" name="inputMedia" class="form-control" id="inputMedia1" aria-describedby="inputMediaHelp" placeholder="Enter favorite movies made since 1990">
-                  <small id="inputMediaHelp" class="form-text text-muted">Enter as a comma separated list, press &ltEnter> to submit. Example: Iron Man, Batman, Spiderman &ltEnter>.</small>
+                  <small id="inputMediaHelp" class="form-text text-muted">Enter as a comma separated list, press &ltEnter> to submit. Example: Iron Man, Batman, Toy Story &ltEnter>.</small>
                 </div>
               </form>
             </div>
@@ -70,7 +70,7 @@
           <h4>Recommendations:</h4>
           <p>
           {% for title in recs %}
-            {{ title }}, 
+            {{ title }}  
           {% endfor %}
           </p>
         </div>

@@ -16,6 +16,6 @@ This project is setup to build on every push, the dependencies follow:
  3. Run `docker build -t local_build .`[run in cloud build].
 
 ## Running MediaViz
- 1. Run `docker run --publish=5000:5000 -ti local_build:latest flask run --host=0.0.0.0` if running through container.
+ 1. Run `docker run --publish=5000:5000 -ti local_build:latest flask run --host=0.0.0.0` if running through container. To run over https run `docker run --publish=5000:5000 -ti local_build:latest flask run --cert=adhoc --host=0.0.0.0`.
  2. Navigate to webpage shown at prompt.
  3. Enjoy!

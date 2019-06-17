@@ -12,7 +12,7 @@ def findMembers(input_names, names):
     members = []
     nonmembers = []
 
-    if isinstance(names, pd.DataFrame):
+    if isinstance(names, pd.DataFrame) or isinstance(names, pd.Series):
         names = set(names.str.lower())
 
     # now iter over placing in each list

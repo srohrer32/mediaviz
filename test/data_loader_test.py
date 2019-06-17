@@ -24,6 +24,7 @@ class DataLoaderTest(unittest.TestCase):
             self.assertTrue(dl.checkMember(members[0]))
             df = dl.accessMember(members[0])
         except:
+            print("@@@@ FAILED IN CLOUD @@@@@")
             # if it fails in cloud just skip
             self.assertTrue(True)
             return

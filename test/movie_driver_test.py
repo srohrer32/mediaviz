@@ -10,6 +10,7 @@ class MovieDriverTest(unittest.TestCase):
         try:
             md = impl.MovieDriver()
         except:
+            print("@@@@@@@ FAILED IN CLOUD @@@@@@@@@@")
             self.assertTrue(True)
             return
 
