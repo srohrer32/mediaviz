@@ -18,16 +18,10 @@ class DataLoaderTest(unittest.TestCase):
 
 
     def test_local(self):
-        try:
-            dl = impl.DataLoader(media_type="movies")
-            members = dl.getMembers()
-            self.assertTrue(dl.checkMember(members[0]))
-            df = dl.accessMember(members[0])
-        except:
-            print("@@@@ FAILED IN CLOUD @@@@@")
-            # if it fails in cloud just skip
-            self.assertTrue(True)
-            return
+        dl = impl.DataLoader(media_type="movies")
+        members = dl.getMembers()
+        self.assertTrue(dl.checkMember(members[0]))
+        df = dl.accessMember(members[0])
 
         self.assertTrue(len(members) > 0)
 

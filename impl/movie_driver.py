@@ -11,7 +11,7 @@ import pandas as pd
 
 class MovieDriver():
 
-    def __clean_data(self):
+    def __clean_imdb_data(self):
         # now make the dataframe to run inference on
         mems = self.dl.getMembers()
 
@@ -23,24 +23,25 @@ class MovieDriver():
             else:
                 self.data = self.data.join(new_df, lsuffix="_l", rsuffix="_r")
 
+        # now correct data types
+        self.data['averageRating'] = self.data['averageRating'].astype(float)
+        self.data['numVotes'] = self.data['numVotes'].astype(int)
+
+        self.data.drop(self.data[self.data['genres'] == "\\N"].index,
+                inplace=True)
+        self.data['genres'] = self.data['genres'].str.split(',').str.get(0)
+        self.data.drop(self.data[self.data['startYear'] == "\\N"].index,
+                inplace=True)
+        self.data['startYear'] = self.data['startYear'].astype(int)
+
         # remove rows not used
         self.data.drop(self.data[(self.data['titleType'] != 'movie') &
                 (self.data['titleType'] != 'tvMovie')].index,
                 inplace=True)
         self.data.drop(self.data[self.data['isAdult'] == 1].index,
                 inplace=True)
-        self.data.drop(self.data[self.data['startYear'] < '1980'].index,
+        self.data.drop(self.data[self.data['startYear'] < 1980].index,
                 inplace=True)
-        self.data.drop(self.data[self.data['startYear'] == "\\N"].index,
-                inplace=True)
-        self.data.drop(self.data[self.data['genres'] == "\\N"].index,
-                inplace=True)
-
-        # now correct data types
-        self.data['averageRating'] = self.data['averageRating'].astype(float)
-        self.data['numVotes'] = self.data['numVotes'].astype(int)
-        self.data['startYear'] = self.data['startYear'].astype(int)
-        self.data['genres'] = self.data['genres'].str.split(',').str.get(0)
 
         # reindex now
         self.data.reset_index(inplace=True)
@@ -56,7 +57,7 @@ class MovieDriver():
             self.dl = DataLoader(media_type="movies")
             self.data = pd.DataFrame()
             # now that the data is loaded clean it
-            self.__clean_data()
+            self.__clean_imdb_data()
             # save labels
             self.labels = self.data['primaryTitle']
             del self.data['primaryTitle']
@@ -66,6 +67,7 @@ class MovieDriver():
 
     def getData(self):
         return self.data
+
 
     def getLabels(self):
         return self.labels

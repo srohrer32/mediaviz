@@ -2,13 +2,35 @@
 # class to load arbitrary date media, etc
 #
 
-from impl.parse.read_tsv import read_tsv
-
+import pandas as pd
 import os
 
 class DataLoader():
+
+    # data type maps
+    ratings_dtypes = {
+                'tconst' : str,
+                'averageRating' : float,
+                'numVotes' : int
+            }
+
+
+    basics_dtypes = {
+                'tconst' : str,
+                'titleType' : str,
+                'primaryTitle' : str,
+                'originalTitle' : str,
+                'isAdult' : str,
+                'startYear' : str,
+                'endYear' : str,
+                'runtimeMinutes' : str,
+                'genres' : str
+            }
+
+
     # declare the titles to read
-    files = ["./data/title.ratings.tsv", "./data/title.basics.tsv"]
+    files = [("./data/title.ratings.tsv", ratings_dtypes),
+                ("./data/title.basics.tsv", basics_dtypes)]
 
     data = {}
 
@@ -17,9 +39,9 @@ class DataLoader():
             self.data = load_data_in
         else:
             # iter over files checking if present then loading
-            for fl in self.files:
+            for (fl, flds) in self.files:
                 if os.path.isfile(fl):
-                    self.data[fl] = read_tsv(fl)
+                    self.data[fl] = pd.read_csv(fl, sep='\t', dtype=flds)
                 else:
                     raise RuntimeError("Please download: ", fl)
 

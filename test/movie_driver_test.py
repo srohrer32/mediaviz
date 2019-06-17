@@ -7,12 +7,7 @@ import unittest
 
 class MovieDriverTest(unittest.TestCase):
     def test_basic(self):
-        try:
-            md = impl.MovieDriver()
-        except:
-            print("@@@@@@@ FAILED IN CLOUD @@@@@@@@@@")
-            self.assertTrue(True)
-            return
+        md = impl.MovieDriver()
 
         # else check the title
         correct = ["averageRating","numVotes", "startYear", "genres"]
