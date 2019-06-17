@@ -29,10 +29,8 @@ class ScikitInfer(InferenceEngine):
 
     def buildEngine(self):
         self.cluster = AgglomerativeClustering()
-        print(self.cluster)
         self.cluster = self.cluster.fit_predict(self.data.toarray())
 
-        print(self.cluster)
         print(self.cluster.get_params())
 
 

@@ -33,14 +33,14 @@ class MovieDriver():
         self.data.drop(self.data[self.data['startYear'] == "\\N"].index,
                 inplace=True)
         self.data['startYear'] = self.data['startYear'].astype(int)
+        self.data.drop(self.data[self.data['startYear'] < 1990].index,
+                inplace=True)
 
         # remove rows not used
         self.data.drop(self.data[(self.data['titleType'] != 'movie') &
                 (self.data['titleType'] != 'tvMovie')].index,
                 inplace=True)
         self.data.drop(self.data[self.data['isAdult'] == 1].index,
-                inplace=True)
-        self.data.drop(self.data[self.data['startYear'] < 1980].index,
                 inplace=True)
 
         # reindex now
