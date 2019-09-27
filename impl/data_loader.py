@@ -5,35 +5,34 @@
 import pandas as pd
 import os
 
-class DataLoader():
 
+class DataLoader():
     # data type maps
     ratings_dtypes = {
-                'tconst' : str,
-                'averageRating' : float,
-                'numVotes' : int
-            }
+        'tconst': str,
+        'averageRating': float,
+        'numVotes': int
+    }
 
     basics_dtypes = {
-                'tconst' : str,
-                'titleType' : str,
-                'primaryTitle' : str,
-                'originalTitle' : str,
-                'isAdult' : str,
-                'startYear' : str,
-                'endYear' : str,
-                'runtimeMinutes' : str,
-                'genres' : str
-            }
+        'tconst': str,
+        'titleType': str,
+        'primaryTitle': str,
+        'originalTitle': str,
+        'isAdult': str,
+        'startYear': str,
+        'endYear': str,
+        'runtimeMinutes': str,
+        'genres': str
+    }
 
     # declare the titles to read
     files = [("./data/title.ratings.tsv", ratings_dtypes),
-                ("./data/title.basics.tsv", basics_dtypes)]
+             ("./data/title.basics.tsv", basics_dtypes)]
 
     data = pd.DataFrame()
 
     ld_data = {}
-
 
     def __loadData(self, load_data_in):
         if load_data_in:
@@ -45,7 +44,6 @@ class DataLoader():
                     self.ld_data[fl] = pd.read_csv(fl, sep='\t', dtype=flds)
                 else:
                     raise RuntimeError("Please download: ", fl)
-
 
     def __clean_imdb_data(self):
         # now make the dataframe to run inference on
@@ -64,31 +62,30 @@ class DataLoader():
         self.data['numVotes'] = self.data['numVotes'].astype(int)
 
         self.data.drop(self.data[self.data['genres'] == "\\N"].index,
-                inplace=True)
+                       inplace=True)
         self.data['genres'] = self.data['genres'].str.split(',').str.get(0)
         self.data.drop(self.data[self.data['startYear'] == "\\N"].index,
-                inplace=True)
+                       inplace=True)
         self.data['startYear'] = self.data['startYear'].astype(int)
         self.data.drop(self.data[self.data['startYear'] < 1990].index,
-                inplace=True)
+                       inplace=True)
 
         # remove rows not used
         self.data.drop(self.data[(self.data['titleType'] != 'movie') &
-                (self.data['titleType'] != 'tvMovie')].index,
-                inplace=True)
+                                 (self.data['titleType'] != 'tvMovie')].index,
+                       inplace=True)
         self.data.drop(self.data[self.data['isAdult'] == 1].index,
-                inplace=True)
+                       inplace=True)
 
         # reindex now
         self.data.reset_index(inplace=True)
         # drop rest of columns
         self.data.drop(columns=['isAdult', 'runtimeMinutes', 'endYear',
-            'originalTitle', 'tconst_r', 'tconst_l', 'index', 'titleType'],
-            inplace=True)
+                                'originalTitle', 'tconst_r', 'tconst_l', 'index', 'titleType'],
+                       inplace=True)
 
         # set index
         self.data.set_index('primaryTitle', inplace=True)
-
 
     def __init__(self, media_type="", load_data_in={}):
         if media_type == "movies":
@@ -99,12 +96,10 @@ class DataLoader():
         # load the data in
         self.__loadData(load_data_in)
 
-
     def cleanData(self):
         self.__clean_imdb_data()
 
         return self.data
-
 
     def accessMember(self, member=""):
         if member == "":
@@ -115,7 +110,6 @@ class DataLoader():
         else:
             raise RuntimeError("Member ", member, " not found in data")
 
-
     def checkMember(self, member=""):
         if member == "":
             raise RuntimeError("Member dataset not provided")
@@ -125,14 +119,11 @@ class DataLoader():
         else:
             return False
 
-
     def getMembers(self):
         return list(self.ld_data.keys())
 
-
     def getData(self):
         return self.data
-
 
     def getLabels(self):
         if isinstance(self.data, pd.DataFrame):

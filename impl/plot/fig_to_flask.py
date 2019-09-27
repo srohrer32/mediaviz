@@ -9,6 +9,7 @@ from flask import Response
 from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
 from matplotlib.figure import Figure
 
+
 # random figure creation
 def __createFigure():
     fig = Figure()
@@ -17,6 +18,7 @@ def __createFigure():
     ys = [random.randint(1, 50) for x in xs]
     axis.plot(xs, ys)
     return fig
+
 
 # helper to create flask png from figure
 def figToFlask(fig=__createFigure()):

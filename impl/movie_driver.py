@@ -9,7 +9,7 @@ import numpy as np
 import pandas as pd
 
 
-class MovieDriver():
+class MovieDriver:
 
     def __init__(self):
         # make the data loader
@@ -18,11 +18,8 @@ class MovieDriver():
         self.data = self.dl.cleanData()
         self.labels = self.dl.getLabels()
 
-
     def getData(self):
         return self.data
 
-
     def getLabels(self):
         return self.labels
-

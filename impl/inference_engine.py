@@ -2,7 +2,8 @@
 # base class for inference engines, this should never be instantiated
 #
 
-class InferenceEngine():
+
+class InferenceEngine:
 
     # startup variable setup
     def __init__(self, data):
