@@ -6,6 +6,8 @@
 import os
 import random
 
+import pandas as pd
+
 from impl.data_loader import DataLoader
 
 
@@ -30,6 +32,9 @@ class MovieDriver:
         return self.labels
 
     def __generateMovies(self):
+        if isinstance(self.labels, pd.Index):
+            return random.sample(list(self.labels.values), self.numMovies)
+
         return random.sample(self.labels, self.numMovies)
 
     def pickRandomMovies(self):
