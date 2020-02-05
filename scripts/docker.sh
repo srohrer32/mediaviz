@@ -7,7 +7,7 @@
 docker-machine create default
 
 # set env vars
-eval $(docker-machine env default)
+eval "$(docker-machine env default)"
 
 # build image
 docker build -t local_build .

@@ -31,7 +31,9 @@ def print_fig():
 def handle_input():
     input_media = flask.request.form['inputMedia'].split(',')
     valid_in = impl.findMembers(input_media, md.getLabels())
-    recs = skl.inferFromData(valid_in)
+
+    #recs = skl.inferFromData(valid_in)
+    recs = md.pickRandomMovies()
     return flask.render_template('home.html', recs=recs)
 
 

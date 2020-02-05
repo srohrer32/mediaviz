@@ -8,6 +8,8 @@ from impl.data_loader import DataLoader
 import numpy as np
 import pandas as pd
 
+import os
+
 
 class MovieDriver:
 
@@ -23,3 +25,13 @@ class MovieDriver:
 
     def getLabels(self):
         return self.labels
+
+    def __generateMovies(self, numMovies):
+        return random.sample(self.labels, numMovies)
+
+    def pickRandomMovies(self):
+        # one byte of random numbers ... 0 -> 255  ... 0 -> 7
+        self.numMovies = os.urandom(1) % 16
+
+    return self.__generateMovies(self.numMovies)
+

@@ -19,9 +19,9 @@ declare -a DOWNLOAD_FILES=("title.basics.tsv.gz" "title.ratings.tsv.gz")
 
 # iter over the array downloading
 for FILE in "${DOWNLOAD_FILES[@]}"; do
-  if [ ! -f $DATA_DIR/${FILE%.*} ]; then
+  if [ ! -f "$DATA_DIR"/"${FILE%.*}" ]; then
     # wget each file and decompress
-    $(wget -q $SRC_URL$FILE -P $DATA_DIR)
-    $(gzip -d $DATA_DIR/$FILE)
+    wget -q "$SRC_URL""$FILE" -P "$DATA_DIR"
+    gzip -d "$DATA_DIR"/"$FILE"
   fi
 done

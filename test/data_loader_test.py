@@ -5,6 +5,7 @@
 import impl
 import unittest
 
+
 class DataLoaderTest(unittest.TestCase):
     def test_empty(self):
         try:
@@ -16,7 +17,6 @@ class DataLoaderTest(unittest.TestCase):
         # if no exception this is error
         self.assertTrue(False)
 
-
     def test_local(self):
         dl = impl.DataLoader(media_type="movies")
         members = dl.getMembers()
@@ -24,7 +24,6 @@ class DataLoaderTest(unittest.TestCase):
         df = dl.accessMember(members[0])
 
         self.assertTrue(len(members) > 0)
-
 
     def test_cloud(self):
         data_in = {'eggs': 5, 'milk': 1, 'water': 3}

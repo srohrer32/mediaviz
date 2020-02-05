@@ -7,6 +7,7 @@ import glob
 import os
 import unittest
 
+
 def _main():
     # initialize the test suite
     loader = unittest.TestLoader()
