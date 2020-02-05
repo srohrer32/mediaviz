@@ -9,8 +9,13 @@ This project is setup to build on every push, the dependencies follow:
  - `scripts/` folder containing helpful scripts, some of which are called by other files.
  - `webgui/` folder containing the Flask web application and templates.
 
-## Installation
+## Setup for Local Testing
+ 0. Install and start a local [docker-machine](https://docs.docker.com/machine/).
+ 1. Run `pip3 install .` in the root directory to install the `impl` package.
+ 2. Run `source scripts/env.sh` in the root directory to setup flask app.
+ 3. Run `flask run` in the root directory.
 
+## Installation
  1. Clone repository to directory.
  2. If using virtualenv initialize here. See [documentation](https://virtualenv.pypa.io/en/stable/userguide/).
  3. Run `docker build -t local_build .`[run in cloud build].

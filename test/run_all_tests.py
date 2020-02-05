@@ -2,7 +2,6 @@
 # root run tests python script, globs other tests and runs all
 #
 
-import importlib
 import glob
 import os
 import unittest

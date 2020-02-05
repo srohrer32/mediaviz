@@ -17,7 +17,7 @@ class ScikitInfer(InferenceEngine):
 
         self.vectorizer = DictVectorizer()
         self.data = self.vectorizer.fit_transform(data_dicts)
-        print(self.vectorizer.get_feature_names())
+        #print(self.vectorizer.get_feature_names())
 
     def __init__(self, data, labels):
         # save the data
@@ -27,8 +27,7 @@ class ScikitInfer(InferenceEngine):
     def buildEngine(self):
         self.cluster = AgglomerativeClustering()
         self.cluster = self.cluster.fit_predict(self.data.toarray())
-
-        print(self.cluster.get_params())
+        #print(self.cluster.get_params())
 
     def inferFromData(self, data):
         return data
